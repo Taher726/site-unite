@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Linkedin, Phone } from 'lucide-react';
+import Link from 'next/link';
 
 export function Footer() {
   return (
@@ -18,12 +18,11 @@ export function Footer() {
         <div>
           <h3 className="text-white font-bold mb-4">Company</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:underline">About Us</a></li>
-            <li><a href="#" className="hover:underline">Career</a></li>
-            <li><a href="#" className="hover:underline">News</a></li>
-            <li><a href="#" className="hover:underline">Media Kit</a></li>
-            <li><a href="#" className="hover:underline">Contact</a></li>
-            <li><a href="#" className="hover:underline">Terms & Conditions</a></li>
+            <li><Link href="/about" className="hover:underline">About</Link></li>
+            <li><Link href="/features" className="hover:underline">Features</Link></li>
+            <li><Link href="/resources" className="hover:underline">Resources</Link></li>
+            <li><Link href="/case_study" className="hover:underline">Case Study</Link></li>
+            <li><Link href="/contact" className="hover:underline">Contact</Link></li>
           </ul>
         </div>
 

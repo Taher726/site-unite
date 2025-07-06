@@ -198,7 +198,7 @@ export default function ContactForm() {
                                 type="button"
                                 onClick={handleSubmit}
                                 disabled={isSubmitting}
-                                className={`w-full bg-[#2b7fff] text-white py-3 px-6 rounded-lg font-semibold text-lg transition-all duration-200 flex items-center justify-center space-x-2 ${
+                                className={`w-full bg-blue-500 text-white py-3 px-6 rounded-lg font-semibold text-lg transition-all duration-200 flex items-center justify-center space-x-2 ${
                                     isSubmitting 
                                         ? 'opacity-70 cursor-not-allowed' 
                                         : 'hover:bg-[#1e6ae6] hover:shadow-lg transform hover:-translate-y-0.5'

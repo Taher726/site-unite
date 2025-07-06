@@ -144,7 +144,7 @@ const EnhancedFeaturesContent = () => {
                                 <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
                                     {feature.title}
                                 </h3>
-                                <p className="text-gray-600 leading-relaxed">
+                                <p className="text-gray-600 leading-relaxed text-justify">
                                     {feature.description}
                                 </p>
 
@@ -213,7 +213,7 @@ const EnhancedFeaturesContent = () => {
                             </div>
                             <h3 className="text-3xl font-bold text-white">Smart & Efficient Cooling</h3>
                         </div>
-                        <div className="space-y-4 text-blue-100">
+                        <div className="space-y-4 text-blue-100 text-justify">
                             <p><strong>Efficient Thermal Management for High-Density Computing:</strong> To keep our HPC and AI systems running reliably, we use advanced cooling solutions tailored for high thermal loads.</p>
                             <p>Our strategy combines precision air conditioning, liquid cooling, and hot/cold aisle containment for optimal airflow and energy savings. These systems are monitored and adjusted in real time to match workload demands.</p>
                             <p>We also focus on sustainability using free cooling, intelligent airflow design, and heat reuse to reduce our carbon footprint without compromising performance.</p>
@@ -244,7 +244,7 @@ const EnhancedFeaturesContent = () => {
                                     <h3 className="text-2xl font-bold text-gray-900">{feature.title}</h3>
                                 </div>
 
-                                <p className="text-gray-600 leading-relaxed">
+                                <p className="text-gray-600 leading-relaxed text-justify">
                                     {feature.description}
                                 </p>
                             </div>

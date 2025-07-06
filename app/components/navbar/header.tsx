@@ -44,14 +44,14 @@ export function Header() {
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     return (
-        <header className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300 ", isScrolled ? "bg-white shadow-md py-2 opacity-90" : "bg-transparent py-4")}>
+        <header className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300 ", isScrolled ? "bg-white shadow-md py-2 opacity-90" : isMenuOpen ? "bg-white py-4" : "bg-transparent py-4")}>
             <div className="container mx-auto px-4 flex justify-between items-center">
                 {/* Logo */}
                 <Link href="/">
                     <img
-                        src={isNotHomePage && isScrolled ? "/logo_dc-origine.svg" : isHomePage && isScrolled ? "/logo_dc-origine.svg" : isHomePage && !isScrolled ? "/logo_dc-origine.svg": "/logo_dc-white.svg"}
+                        src={isNotHomePage && isScrolled ? "/logo_dc-origine.svg" : isHomePage && isScrolled ? "/logo_dc-origine.svg" : isHomePage && !isScrolled ? "/logo_dc-origine.svg" : isMenuOpen ? "/logo_dc-origine.svg" : "/logo_dc-white.svg"}
                         alt="logo hpc"
-                        className="h-13 w-auto mr-3 cursor-pointer px-6"
+                        className="h-10 md:h-13 w-auto mr-3 cursor-pointer px-3 md:px-6"
                     />
                 </Link>
 
@@ -79,8 +79,8 @@ export function Header() {
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                 >
                     {isMenuOpen
-                        ? <X className={isScrolled ? "text-gray-800" : "text-blue-500"} />
-                        : <Menu className={isScrolled ? "text-gray-800" : "text-white"} />
+                        ? <X className={isScrolled ? "text-blue-500" : "text-blue-500"} />
+                        : <Menu className={isScrolled ? "text-blue-500" : !isHomePage ? "text-white" : "text-blue-500"} />
                     }
                 </button>
             </div>

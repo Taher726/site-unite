@@ -359,7 +359,7 @@ export default function Resources() {
     ];
 
     return (
-        <div className="min-h-screen bg-white relative overflow-hidden">
+        <div className="min-h-screen bg-white relative overflow-hidden p-2">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-5">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10" />
@@ -371,8 +371,8 @@ export default function Resources() {
 
             <div className="relative z-10 py-20">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Infrastructure Overview</h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Infrastructure Overview</h2>
+                    <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                         Discover our state-of-the-art data center resources. Click on any resource to learn more about our capabilities.
                     </p>
                 </div>
