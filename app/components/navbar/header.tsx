@@ -21,7 +21,7 @@ const navItems = [
     { label: "About", icon: <Info size={18} className="mr-1" />, link: "/about" },
     { label: "Features", icon: <Star size={18} className="mr-1" />, link: "/features" },
     { label: "Resources", icon: <BookOpen size={18} className="mr-1" />, link: "/resources" },
-    { label: "Case Study", icon: <Briefcase size={18} className="mr-1" />, link: "/case-study" },
+    { label: "Case Study", icon: <Briefcase size={18} className="mr-1" />, link: "/case_study" },
     { label: "Contact", icon: <Mail size={18} className="mr-1" />, link: "/contact" },
 ];
 

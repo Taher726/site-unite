@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { Server, HardDrive, Wifi, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
 
+// Define the types for props
+interface ImageGalleryProps {
+    images: string[];
+    title: string;
+}
+
 // Image Gallery Component
-function ImageGallery({ images, title }) {
+function ImageGallery({ images, title }: ImageGalleryProps) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    
+
     if (!images || images.length === 0) {
         return (
             <div className="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl mb-6 flex items-center justify-center border border-gray-300">
@@ -17,28 +23,30 @@ function ImageGallery({ images, title }) {
             </div>
         );
     }
-    
+
     const nextImage = () => {
         setCurrentImageIndex((prev) => (prev + 1) % images.length);
     };
-    
+
     const prevImage = () => {
         setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
     };
-    
+
     return (
         <div className="relative w-full h-48 mb-6 rounded-2xl overflow-hidden border border-gray-300">
             {/* Main Image */}
             <div className="relative w-full h-full">
-                <img 
-                    src={images[currentImageIndex]} 
+                <img
+                    src={images[currentImageIndex]}
                     alt={`${title} - Image ${currentImageIndex + 1}`}
                     className="w-full h-full object-contain transition-all duration-500"
                     onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextElementSibling.style.display = 'flex';
+                        const target = e.target as HTMLImageElement; // Type assertion
+                        target.style.display = 'none';
+                        (target.nextElementSibling as HTMLElement).style.display = 'flex'; // Type assertion for next sibling
                     }}
                 />
+
                 {/* Fallback for broken images */}
                 <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 hidden items-center justify-center">
                     <div className="text-center">
@@ -49,7 +57,7 @@ function ImageGallery({ images, title }) {
                     </div>
                 </div>
             </div>
-            
+
             {/* Navigation Arrows (only show if multiple images) */}
             {images.length > 1 && (
                 <>
@@ -67,14 +75,14 @@ function ImageGallery({ images, title }) {
                     </button>
                 </>
             )}
-            
+
             {/* Image Counter */}
             {images.length > 1 && (
                 <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
                     {currentImageIndex + 1} / {images.length}
                 </div>
             )}
-            
+
             {/* Dot Indicators (only show if multiple images) */}
             {images.length > 1 && (
                 <div className="absolute bottom-2 right-2 flex space-x-1">
@@ -82,11 +90,10 @@ function ImageGallery({ images, title }) {
                         <button
                             key={index}
                             onClick={() => setCurrentImageIndex(index)}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                index === currentImageIndex 
-                                    ? 'bg-white' 
-                                    : 'bg-white/50 hover:bg-white/70'
-                            }`}
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImageIndex
+                                ? 'bg-white'
+                                : 'bg-white/50 hover:bg-white/70'
+                                }`}
                         />
                     ))}
                 </div>
@@ -95,17 +102,32 @@ function ImageGallery({ images, title }) {
     );
 }
 
+interface ResourceNodeProps {
+    resource: {
+        id: number;
+        title: string;
+        icon: React.ComponentType<{ className?: string }>;
+    };
+    position: {
+        top: number;
+        left: number;
+        delay: number;
+    };
+    isActive: boolean;
+    onHover: (id: number | null) => void;
+    onClick: (resource: any) => void;
+}
+
 // Resource Node Component
-function ResourceNode({ resource, position, isActive, onHover, onClick }) {
+function ResourceNode({ resource, position, isActive, onHover, onClick }: ResourceNodeProps) {
     const { top, left, delay } = position;
-    
+
     return (
         <div
-            className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-700 cursor-pointer group ${
-                isActive ? 'z-20' : 'z-10'
-            }`}
-            style={{ 
-                top: `${top}%`, 
+            className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-700 cursor-pointer group ${isActive ? 'z-20' : 'z-10'
+                }`}
+            style={{
+                top: `${top}%`,
                 left: `${left}%`,
                 animationDelay: `${delay}ms`
             }}
@@ -115,28 +137,27 @@ function ResourceNode({ resource, position, isActive, onHover, onClick }) {
         >
             {/* Connection Line to Center */}
             <div className="absolute w-px bg-gradient-to-r from-blue-500/60 to-transparent h-32 -bottom-16 left-1/2 transform -translate-x-1/2 opacity-40 group-hover:opacity-80 transition-opacity duration-300" />
-            
+
             {/* Resource Circle */}
-            <div className={`relative w-32 h-32 rounded-full bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-300 flex flex-col items-center justify-center transform transition-all duration-500 hover:scale-110 shadow-lg ${
-                isActive ? 'border-blue-500 shadow-blue-500/30' : 'group-hover:border-blue-400'
-            }`}>
+            <div className={`relative w-32 h-32 rounded-full bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-300 flex flex-col items-center justify-center transform transition-all duration-500 hover:scale-110 shadow-lg ${isActive ? 'border-blue-500 shadow-blue-500/30' : 'group-hover:border-blue-400'
+                }`}>
                 {/* Background Glow */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
-                
+
                 {/* Icon */}
                 <div className="relative z-10 mb-2">
                     <resource.icon className="w-8 h-8 text-blue-600 group-hover:text-blue-500 transition-colors duration-300" />
                 </div>
-                
+
                 {/* Title */}
                 <div className="relative z-10 text-center px-2">
                     <h3 className="text-sm font-semibold text-gray-800 leading-tight">{resource.title}</h3>
                 </div>
-                
+
                 {/* Pulse Effect */}
                 <div className="absolute inset-0 rounded-full border-2 border-blue-500 opacity-0 group-hover:opacity-100 animate-ping" />
             </div>
-            
+
             {/* Resource Image (Placeholder) */}
             <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-90 group-hover:scale-100">
                 <resource.icon className="w-6 h-6 text-white" />
@@ -145,26 +166,30 @@ function ResourceNode({ resource, position, isActive, onHover, onClick }) {
     );
 }
 
+interface CentralHubProps {
+    isActive: boolean;
+}
+
 // Central Hub Component
-function CentralHub({ isActive }) {
+function CentralHub({ isActive }: CentralHubProps) {
     return (
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
             {/* Outer Ring */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border-2 border-blue-400/40 animate-spin-slow" />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full border border-blue-500/30 animate-pulse" />
-            
+
             {/* Central Core */}
             <div className="relative w-32 h-32 rounded-full bg-blue-500 shadow-2xl flex flex-col items-center justify-center border-4 border-blue-400/60">
                 {/* Inner Glow */}
                 <div className="absolute inset-2 rounded-full bg-gradient-to-br from-blue-400/40 to-purple-500/40 blur-lg animate-pulse" />
-                
+
                 {/* Content */}
                 <div className="relative z-10 flex flex-col justify-center px-2 text-center items-center">
-                    <img src="/logo_dc-white.svg" className='h-9 mb-2'/>
+                    <img src="/logo_dc-white.svg" className='h-9 mb-2' />
                     <h2 className="text-xs font-bold text-white leading-tight">Data Center</h2>
                     <p className="text-xs text-blue-100">Resources</p>
                 </div>
-                
+
                 {/* Rotating Elements */}
                 <div className="absolute inset-0 rounded-full border-2 border-blue-300/60 animate-spin-slow" />
                 <div className="absolute inset-1 rounded-full border border-blue-200/40 animate-spin-reverse" />
@@ -173,15 +198,19 @@ function CentralHub({ isActive }) {
     );
 }
 
+interface ConnectionLinesProps {
+    activeResource: number | null;
+}
+
 // Connection Lines Component
-function ConnectionLines({ activeResource }) {
+function ConnectionLines({ activeResource }: ConnectionLinesProps) {
     const connections = [
         { from: { x: 50, y: 50 }, to: { x: 25, y: 25 } },
         { from: { x: 50, y: 50 }, to: { x: 75, y: 25 } },
         { from: { x: 50, y: 50 }, to: { x: 75, y: 75 } },
         { from: { x: 50, y: 50 }, to: { x: 25, y: 75 } },
     ];
-    
+
     return (
         <svg className="absolute inset-0 w-full h-full pointer-events-none">
             <defs>
@@ -200,19 +229,31 @@ function ConnectionLines({ activeResource }) {
                     stroke="url(#connectionGradient)"
                     strokeWidth="2"
                     strokeDasharray="5,5"
-                    className={`transition-all duration-500 ${
-                        activeResource ? 'opacity-100' : 'opacity-50'
-                    }`}
+                    className={`transition-all duration-500 ${activeResource ? 'opacity-100' : 'opacity-50'
+                        }`}
                 />
             ))}
         </svg>
     );
 }
 
+interface ResourceDetailModalProps {
+    resource: {
+        id: number;
+        title: string;
+        category: string;
+        icon: React.ComponentType<{ className?: string }>;
+        images: string[];
+        specs?: string[];
+        features?: string[];
+    } | null;
+    onClose: () => void;
+}
+
 // Resource Detail Modal
-function ResourceDetailModal({ resource, onClose }) {
+function ResourceDetailModal({ resource, onClose }: ResourceDetailModalProps) {
     if (!resource) return null;
-    
+
     return (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4">
             <div className="bg-gradient-to-br from-slate-50/95 to-white/95 backdrop-blur-sm rounded-3xl max-w-2xl w-full border border-white/20 shadow-2xl max-h-[90vh] overflow-y-auto">
@@ -227,18 +268,18 @@ function ResourceDetailModal({ resource, onClose }) {
                                 <p className="text-blue-600 text-sm font-medium">{resource.category}</p>
                             </div>
                         </div>
-                        <button 
+                        <button
                             onClick={onClose}
                             className="text-slate-400 hover:text-slate-600 transition-all duration-300 w-8 h-8 rounded-full bg-white/80 hover:bg-white hover:scale-110 flex items-center justify-center shadow-sm"
                         >
                             ×
                         </button>
                     </div>
-                    
+
                     {/* Image Gallery */}
                     <ImageGallery images={resource.images} title={resource.title} />
-                    
-                    <div className="text-center"> 
+
+                    <div className="text-center">
                         {/* Additional Details */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                             <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-white/40 shadow-sm">
@@ -267,9 +308,9 @@ function ResourceDetailModal({ resource, onClose }) {
 
 // Main Resources Component
 export default function Resources() {
-    const [activeResource, setActiveResource] = useState(null);
+    const [activeResource, setActiveResource] = useState<number | null>(null)
     const [selectedResource, setSelectedResource] = useState(null);
-    
+
     const resources = [
         {
             id: 1,
@@ -316,7 +357,7 @@ export default function Resources() {
             features: ["AI frameworks", "Container support", "Jupyter notebooks", "Model deployment"]
         }
     ];
-    
+
     return (
         <div className="min-h-screen bg-white relative overflow-hidden">
             {/* Background Pattern */}
@@ -327,7 +368,7 @@ export default function Resources() {
                                      radial-gradient(circle at 75% 75%, rgba(147, 51, 234, 0.1) 0%, transparent 50%)`
                 }} />
             </div>
-            
+
             <div className="relative z-10 py-20">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold text-gray-900 mb-4">Infrastructure Overview</h2>
@@ -335,12 +376,12 @@ export default function Resources() {
                         Discover our state-of-the-art data center resources. Click on any resource to learn more about our capabilities.
                     </p>
                 </div>
-                
+
                 {/* Main Network Diagram */}
                 <div className="relative max-w-4xl mx-auto h-96 px-8">
                     <ConnectionLines activeResource={activeResource} />
                     <CentralHub isActive={activeResource !== null} />
-                    
+
                     {resources.map((resource) => (
                         <ResourceNode
                             key={resource.id}
@@ -352,7 +393,7 @@ export default function Resources() {
                         />
                     ))}
                 </div>
-                
+
                 {/* Instructions */}
                 <div className="text-center mt-16">
                     <p className="text-gray-500 text-sm">
@@ -360,10 +401,10 @@ export default function Resources() {
                     </p>
                 </div>
             </div>
-            
-            <ResourceDetailModal 
-                resource={selectedResource} 
-                onClose={() => setSelectedResource(null)} 
+
+            <ResourceDetailModal
+                resource={selectedResource}
+                onClose={() => setSelectedResource(null)}
             />
         </div>
     );
