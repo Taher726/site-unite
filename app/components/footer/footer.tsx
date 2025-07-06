@@ -48,7 +48,7 @@ export function Footer() {
 
       {/* Bottom divider and copyright */}
       <div className="border-t border-gray-700 mt-10 pt-6 text-center text-sm text-gray-400">
-        <p>© 2025 Created with ❤️</p>
+        <p>© 2025 HPC, Big Data & AI. All rights reserved.</p>
       </div>
     </footer>
   );

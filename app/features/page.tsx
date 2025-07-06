@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Cpu, Database, Brain, Shield, Zap, Network, Thermometer, Lock, Globe, Server, Activity, BarChart3 } from 'lucide-react';
+import { Cpu, Database, Brain, Shield, Zap, Network, Thermometer, Lock, Globe, AirVent, FireExtinguisher, BarChart3 } from 'lucide-react';
 import FeaturesAbout from "./components/features_about";
 
 const EnhancedFeaturesContent = () => {
@@ -48,38 +48,38 @@ const EnhancedFeaturesContent = () => {
     ];
 
     const securityFeatures = [
-        { 
-            icon: Lock, 
+        {
+            icon: Lock,
             title: "Biometric or badge-based access",
             image: "/feature1.jpg",
             description: "Advanced biometric scanners and secure badge systems ensure only authorized personnel can access sensitive areas."
         },
-        { 
-            icon: Zap, 
-            title: "Fire detection and suppression",
-            image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop&crop=center",
+        {
+            icon: FireExtinguisher ,
+            title: "Fire extinguishing",
+            image: "/feature7.jpeg",
             description: "State-of-the-art fire detection systems with automated suppression technology protect critical infrastructure."
         },
-        { 
-            icon: Activity, 
+        {
+            icon: Shield,
             title: "FireWall and network monitoring",
             image: "/feature4.png",
             description: "Comprehensive video monitoring with AI-powered analytics provides continuous security coverage and threat detection."
         },
-        { 
-            icon: Database, 
-            title: "Visitor logs and scheduled entry",
-            image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=250&fit=crop&crop=center",
+        {
+            icon: Network,
+            title: "Network",
+            image: "/feature6.jpg",
             description: "Digital visitor management system with pre-scheduling and real-time tracking for enhanced security protocols."
         },
-        { 
-            icon: Server, 
+        {
+            icon: AirVent,
             title: "Redundant power and cooling",
             image: "/feature3.jpg",
             description: "Multiple backup power systems and cooling redundancy ensure 99.9% uptime for mission-critical operations."
         },
-        { 
-            icon: Shield, 
+        {
+            icon: Zap,
             title: "Electrical power supply",
             image: "/feature5.png",
             description: "Advanced perimeter security with motion sensors, thermal imaging, and instant alert systems."
@@ -153,7 +153,7 @@ const EnhancedFeaturesContent = () => {
                             </div>
                         ))}
                     </div>
-                </div>
+                </div>  
             </section>
 
             {/* Security Section */}
@@ -169,21 +169,21 @@ const EnhancedFeaturesContent = () => {
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                         {securityFeatures.map((feature, index) => (
-                            <div 
-                                key={index} 
+                            <div
+                                key={index}
                                 className="group relative overflow-hidden rounded-3xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 cursor-pointer"
                                 onMouseEnter={() => setActiveCard(index + 10)}
                                 onMouseLeave={() => setActiveCard(null)}
                             >
                                 {/* Image Section */}
                                 <div className="relative h-48 overflow-hidden">
-                                    <img 
-                                        src={feature.image} 
+                                    <img
+                                        src={feature.image}
                                         alt={feature.title}
                                         className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                                    
+
                                     {/* Icon Overlay */}
                                     <div className="absolute top-4 right-4 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                         <feature.icon className="w-6 h-6 text-white" />
@@ -192,10 +192,10 @@ const EnhancedFeaturesContent = () => {
 
                                 {/* Content Section */}
                                 <div className="p-6">
-                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-200 transition-colors duration-300">
+                                    <h3 className="text-xl text-center font-bold text-white mb-3 group-hover:text-blue-200 transition-colors duration-300">
                                         {feature.title}
                                     </h3>
-                                    
+
                                 </div>
 
                                 {/* Animated Border */}

@@ -13,21 +13,23 @@ import {
     Mail
 } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { link } from "fs";
 
 
 const navItems = [
-    { label: "Home", icon: <Home size={18} className="mr-1" /> },
-    { label: "About", icon: <Info size={18} className="mr-1" /> },
-    { label: "Features", icon: <Star size={18} className="mr-1" /> },
-    { label: "Resources", icon: <BookOpen size={18} className="mr-1" /> },
-    { label: "Case Study", icon: <Briefcase size={18} className="mr-1" /> },
-    { label: "Contact", icon: <Mail size={18} className="mr-1" /> },
+    { label: "Home", icon: <Home size={18} className="mr-1" />, link: "/" },
+    { label: "About", icon: <Info size={18} className="mr-1" />, link: "/about" },
+    { label: "Features", icon: <Star size={18} className="mr-1" />, link: "/features" },
+    { label: "Resources", icon: <BookOpen size={18} className="mr-1" />, link: "/resources" },
+    { label: "Case Study", icon: <Briefcase size={18} className="mr-1" />, link: "/case-study" },
+    { label: "Contact", icon: <Mail size={18} className="mr-1" />, link: "/contact" },
 ];
 
 
 export function Header() {
     const pathName = usePathname();
-    const isAboutPage = pathName === "/about";
+    const isHomePage = pathName === "/";
+    const isNotHomePage = pathName !== "/";
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -47,7 +49,7 @@ export function Header() {
                 {/* Logo */}
                 <Link href="/">
                     <img
-                        src={isAboutPage && isScrolled ? "/logo_hpc_blue.png" : "/logo_hpc_white.png"}
+                        src={isNotHomePage && isScrolled ? "/LOGO-datacenter-origine.svg" : isHomePage && isScrolled ? "/LOGO-datacenter-origine.svg" : isHomePage && !isScrolled ? "/LOGO-datacenter-origine.svg": "/LOGO-datacenter-white.svg"}
                         alt="logo hpc"
                         className="h-20 w-auto mr-3 cursor-pointer px-6"
                     />
@@ -56,15 +58,16 @@ export function Header() {
                 {/* Desktop Navbar */}
                 <nav className="hidden md:flex items-center space-x-7 px-5">
                     {navItems.map((item, index) => (
-                        <button
-                            key={index}
-                            className={cn(
-                                `flex items-center cursor-pointer px-2 font-bold transition-colors duration-200 ease-in-out hover:text-blue-500 ${isAboutPage && isScrolled ? "text-gray-800" : "text-white"}`,
-                            )}
-                        >
-                            {item.icon}
-                            {item.label}
-                        </button>
+                        <Link key={index} href={item.link}>
+                            <button
+                                className={cn(
+                                    `flex items-center cursor-pointer px-2 font-bold transition-colors duration-200 ease-in-out ${isNotHomePage && isScrolled ? "text-gray-800" : isHomePage ? "text-gray-800" : "text-white"}`,
+                                )}
+                            >
+                                {item.icon}
+                                {item.label}
+                            </button>
+                        </Link>
                     ))}
 
                 </nav>
@@ -77,7 +80,7 @@ export function Header() {
                 >
                     {isMenuOpen
                         ? <X className={isScrolled ? "text-gray-800" : "text-blue-500"} />
-                        : <Menu className={isScrolled ? "text-gray-800" : "text-blue-500"} />
+                        : <Menu className={isScrolled ? "text-gray-800" : "text-white"} />
                     }
                 </button>
             </div>
@@ -86,16 +89,16 @@ export function Header() {
                 <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg p-4">
                     <nav className="flex flex-col space-y-4">
                         {navItems.map((item, index) => (
-                            <button
-                                key={index}
-                                className={cn(
-                                    "hover:bg-transparent flex items-center font-bold",
-                                    isScrolled ? "text-blue-500 hover:text-blue-600" : "text-blue-500"
-                                )}
-                            >
-                                {item.icon}
-                                {item.label}
-                            </button>
+                            <Link key={index} href={item.link} onClick={() => setIsMenuOpen(false)}>
+                                <button
+                                    className={cn(
+                                        "hover:bg-transparent flex items-center font-bold text-gray-800",
+                                    )}
+                                >
+                                    {item.icon}
+                                    {item.label}
+                                </button>
+                            </Link>
                         ))}
 
                     </nav>
