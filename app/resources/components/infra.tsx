@@ -214,22 +214,22 @@ function ResourceDetailModal({ resource, onClose }) {
     if (!resource) return null;
     
     return (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl max-w-2xl w-full border border-gray-200 shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4">
+            <div className="bg-gradient-to-br from-slate-50/95 to-white/95 backdrop-blur-sm rounded-3xl max-w-2xl w-full border border-white/20 shadow-2xl max-h-[90vh] overflow-y-auto">
                 <div className="p-8">
                     <div className="flex items-center justify-between mb-6">
                         <div className="flex items-center">
-                            <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-4">
+                            <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                                 <resource.icon className="w-7 h-7 text-white" />
                             </div>
                             <div>
-                                <h2 className="text-2xl font-bold text-gray-900">{resource.title}</h2>
-                                <p className="text-blue-600 text-sm">{resource.category}</p>
+                                <h2 className="text-2xl font-bold text-slate-800">{resource.title}</h2>
+                                <p className="text-blue-600 text-sm font-medium">{resource.category}</p>
                             </div>
                         </div>
                         <button 
                             onClick={onClose}
-                            className="text-gray-400 hover:text-gray-600 transition-colors duration-300 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center"
+                            className="text-slate-400 hover:text-slate-600 transition-all duration-300 w-8 h-8 rounded-full bg-white/80 hover:bg-white hover:scale-110 flex items-center justify-center shadow-sm"
                         >
                             ×
                         </button>
@@ -241,17 +241,17 @@ function ResourceDetailModal({ resource, onClose }) {
                     <div className="text-center"> 
                         {/* Additional Details */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                            <div className="bg-gray-50 rounded-lg p-4">
-                                <h4 className="font-semibold text-gray-800 mb-2">Specifications</h4>
-                                <ul className="text-sm text-gray-600 space-y-1">
+                            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-white/40 shadow-sm">
+                                <h4 className="font-semibold text-slate-700 mb-2">Specifications</h4>
+                                <ul className="text-sm text-slate-600 space-y-1">
                                     {resource.specs?.map((spec, index) => (
                                         <li key={index}>• {spec}</li>
                                     )) || <li>• Details coming soon</li>}
                                 </ul>
                             </div>
-                            <div className="bg-gray-50 rounded-lg p-4">
-                                <h4 className="font-semibold text-gray-800 mb-2">Features</h4>
-                                <ul className="text-sm text-gray-600 space-y-1">
+                            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-white/40 shadow-sm">
+                                <h4 className="font-semibold text-slate-700 mb-2">Features</h4>
+                                <ul className="text-sm text-slate-600 space-y-1">
                                     {resource.features?.map((feature, index) => (
                                         <li key={index}>• {feature}</li>
                                     )) || <li>• Enterprise-grade reliability</li>}
@@ -290,7 +290,7 @@ export default function Resources() {
             icon: HardDrive,
             images: ["/hard_drive.jpeg"],
             position: { top: 25, left: 75, delay: 200 },
-            specs: ["Petabyte capacity", "SSD + HDD tiers", "RAID protection", "10Gbps throughput"],
+            specs: ["Terabyte capacity", "SSD + HDD tiers", "RAID protection", "10Gbps throughput"],
             features: ["Data deduplication", "Snapshots", "Encryption", "Remote replication"]
         },
         {
@@ -312,7 +312,7 @@ export default function Resources() {
             icon: Zap,
             images: ["/gpu.jpeg"],
             position: { top: 75, left: 25, delay: 600 },
-            specs: ["NVIDIA H100s", "80GB memory per GPU", "NVLink connectivity", "Liquid cooling"],
+            specs: ["NVIDIA A40", "NVIDIA L40S", "NVIDIA L4", "NVIDIA A2"],
             features: ["AI frameworks", "Container support", "Jupyter notebooks", "Model deployment"]
         }
     ];

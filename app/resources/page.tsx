@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import HeroResources from './components/hero_resources';
 import Resources from './components/infra';
+import Monitoring from './components/monitoring';
 
 
 // Main Page Component
@@ -40,6 +41,7 @@ export default function ResourcesPage() {
         <>
             <HeroResources />
             <Resources />
+            <Monitoring />
         </>
     );
 }
