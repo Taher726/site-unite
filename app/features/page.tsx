@@ -50,7 +50,7 @@ const EnhancedFeaturesContent = () => {
     const securityFeatures = [
         {
             icon: Lock,
-            title: "Biometric or badge-based access",
+            title: "Badge-based access",
             image: "/feature1.jpg",
             description: "Advanced biometric scanners and secure badge systems ensure only authorized personnel can access sensitive areas."
         },
@@ -153,6 +153,7 @@ const EnhancedFeaturesContent = () => {
                             </div>
                         ))}
                     </div>
+                    
                 </div>  
             </section>
 

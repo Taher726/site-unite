@@ -49,9 +49,9 @@ export function Header() {
                 {/* Logo */}
                 <Link href="/">
                     <img
-                        src={isNotHomePage && isScrolled ? "/LOGO-datacenter-origine.svg" : isHomePage && isScrolled ? "/LOGO-datacenter-origine.svg" : isHomePage && !isScrolled ? "/LOGO-datacenter-origine.svg": "/LOGO-datacenter-white.svg"}
+                        src={isNotHomePage && isScrolled ? "/logo_dc-origine.svg" : isHomePage && isScrolled ? "/logo_dc-origine.svg" : isHomePage && !isScrolled ? "/logo_dc-origine.svg": "/logo_dc-white.svg"}
                         alt="logo hpc"
-                        className="h-20 w-auto mr-3 cursor-pointer px-6"
+                        className="h-13 w-auto mr-3 cursor-pointer px-6"
                     />
                 </Link>
 
