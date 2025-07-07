@@ -1,6 +1,6 @@
 export default function HeroApplications() {
     return(
-        <div className="relative h-[50vh] min-h-[370px] w-[full] overflow-hidden rounded-b-4xl">
+        <div className="relative h-[30vh] md:h-[50vh] min-h-[300px] md:min-h-[370px] w-[full] overflow-hidden rounded-b-4xl">
             {/* Background Image */}
             <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{
