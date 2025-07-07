@@ -38,10 +38,10 @@ export default function ResourcesPage() {
     }, []);
     
     return (
-        <>
+        <div className='bg-white'>
             <HeroResources />
             <Resources />
             <Monitoring />
-        </>
+        </div>
     );
 }

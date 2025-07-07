@@ -258,7 +258,7 @@ const EnhancedFeaturesContent = () => {
 
 export default function FeaturesPage() {
     return (
-        <section>
+        <section className="bg-white">
             <FeaturesAbout />
             <EnhancedFeaturesContent />
         </section>
