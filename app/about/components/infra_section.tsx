@@ -97,7 +97,7 @@ const InfrastructureSection = () => {
   };
 
   return (
-    <section className="pt-20 md:pt-27 pb-2 bg-white relative overflow-hidden">
+    <section className="pt-20 md:pt-27 pb-20 bg-white relative overflow-hidden">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 text-center mb-16">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-black mb-6">

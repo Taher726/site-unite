@@ -25,7 +25,9 @@ const eslintConfig = [
       // Disable React hooks exhaustive deps warning
       "react-hooks/exhaustive-deps": "off",
 
-      "@typescript-eslint/no-explicit-any": "off"
+      "@typescript-eslint/no-explicit-any": "off",
+
+      "react/no-unescaped-entities": "off",
 
     }
   }

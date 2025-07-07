@@ -1,6 +1,6 @@
 export function AboutLanding() {
     return (
-        <section className="py-16 px-5 mt-10 max-w-7xl mx-auto">
+        <section className="py-16 px-5 mt-10 max-w-7xl mx-auto bg-white">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
                 {/* Left: Image */}
                 <div className="flex justify-center md:justify-end border border-gray-200 p-5">

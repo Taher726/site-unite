@@ -3,9 +3,9 @@ import InfrastructureSection from "./components/infra_section";
 
 export default function AboutPage() {
     return (
-        <>
+        <div className="bg-white">
             <HeroAbout />
-            <section className="py-16 px-4 md:mt-10 max-w-7xl mx-auto">
+            <section className="py-16 px-4 md:mt-10 max-w-7xl mx-auto bg-white">
                 <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-20">
                     {/* Text - appears first on mobile, left on desktop */}
                     <div className="text-center md:text-left order-1 md:order-2">
@@ -30,7 +30,7 @@ export default function AboutPage() {
                     </div>
                 </div>
             </section>
-            <section className="py-16 px-4 md:mt-10 max-w-7xl mx-auto">
+            <section className="py-16 px-4 md:mt-10 max-w-7xl mx-auto bg-white">
                 <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-20">
                     {/* Text - appears first on mobile, left on desktop */}
                     <div className="text-center md:text-left order-1">
@@ -53,6 +53,6 @@ export default function AboutPage() {
                 </div>
             </section>
             <InfrastructureSection/>
-        </>
+        </div>
     );
 }

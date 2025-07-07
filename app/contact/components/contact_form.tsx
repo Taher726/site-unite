@@ -128,7 +128,7 @@ export default function ContactForm() {
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
-                                        className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2b7fff] focus:border-transparent transition-all duration-200 ${
+                                        className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2b7fff] focus:border-transparent transition-all duration-200 text-gray-600 ${
                                             errors.name ? 'border-red-500' : 'border-gray-300'
                                         }`}
                                         placeholder="Your name"
@@ -154,7 +154,7 @@ export default function ContactForm() {
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
-                                        className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2b7fff] focus:border-transparent transition-all duration-200 ${
+                                        className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2b7fff] focus:border-transparent transition-all duration-200 text-gray-600 ${
                                             errors.email ? 'border-red-500' : 'border-gray-300'
                                         }`}
                                         placeholder="your.email@example.com"
@@ -181,7 +181,7 @@ export default function ContactForm() {
                                     value={formData.message}
                                     onChange={handleChange}
                                     rows={6}
-                                    className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2b7fff] focus:border-transparent transition-all duration-200 resize-none ${
+                                    className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2b7fff] focus:border-transparent transition-all duration-200 resize-none text-gray-600 ${
                                         errors.message ? 'border-red-500' : 'border-gray-300'
                                     }`}
                                     placeholder="Tell us about your project or share your feedback..."
