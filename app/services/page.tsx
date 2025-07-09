@@ -19,7 +19,7 @@ const big_data_applications = [
   },
   {
     description: "Smart video surveillance with real-time image capture, analysis, and LLM-powered search by prompt.",
-    images: ["/surv_2.png"],
+    images: ["/surv3.png"],
   },
   {
     description: "LLM-powered chatbot to guide students in their academic orientation.",
