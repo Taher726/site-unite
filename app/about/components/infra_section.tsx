@@ -154,7 +154,7 @@ const InfrastructureSection = () => {
                   <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-300 text-xs md:text-sm leading-relaxed">
+                  <p className="text-gray-300 text-xs md:text-sm leading-relaxed text-justify">
                     {feature.description}
                   </p>
                 </div>

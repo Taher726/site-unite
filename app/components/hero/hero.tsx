@@ -7,7 +7,7 @@ const slides = [
     {
         title: "Empowering Innovation",
         subtitle: "Next-Generation Computing",
-        description: "High-performance computing, big data & AI transforming research and accelerating discoveries across industries.",
+        description: "High-performance computing, Big Data & AI transforming research and accelerating discoveries across industries.",
         image: "/img1.jpg",
         accent: "from-blue-600 to-cyan-500"
     },

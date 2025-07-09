@@ -54,12 +54,12 @@ const EnhancedFeaturesContent = () => {
             image: "/feature1.jpg",
             description: "Advanced biometric scanners and secure badge systems ensure only authorized personnel can access sensitive areas."
         },
-        {
+        /*{
             icon: FireExtinguisher ,
             title: "Fire extinguishing",
             image: "/feature7.jpeg",
             description: "State-of-the-art fire detection systems with automated suppression technology protect critical infrastructure."
-        },
+        },*/
         {
             icon: Shield,
             title: "FireWall and network monitoring",

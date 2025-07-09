@@ -37,7 +37,7 @@ export function KeyFigures() {
     },
     {
       icon: <Network className="w-8 h-8 text-cyan-600" />,
-      title: "100/10/25 Gb Network",
+      title: "100/25/10 Gb Network",
       description: "Ultra-fast network switches with low latency."
     },
     {

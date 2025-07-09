@@ -320,7 +320,7 @@ export default function Resources() {
             icon: Server,
             images: ["/server3.jpeg", "/server1.jpeg", "/server2.jpeg"],
             position: { top: 25, left: 25, delay: 0 },
-            specs: ["Intel Xeon processors", "Up to 1TB RAM", "NVMe SSD storage", "Redundant power supply"],
+            specs: ["AMD & Intel Xeon processors", "Up to 6TB RAM", "SAS, SATA, and NVMe SSD storage", "Redundant power supply"],
             features: ["24/7 monitoring", "Auto-scaling", "Load balancing", "Backup systems"]
         },
         {
@@ -342,7 +342,7 @@ export default function Resources() {
             icon: Wifi,
             images: ["/network2.jpeg", "/feature6.jpg"],
             position: { top: 75, left: 75, delay: 400 },
-            specs: ["100Gbps backbone", "Sub-millisecond latency", "99.99% uptime", "Global peering"],
+            specs: ["100/25/10 GB Network", "Sub-millisecond latency", "99.99% uptime", "Global peering"],
             features: ["DDoS protection", "Traffic shaping", "VPN support", "SD-WAN ready"]
         },
         {
